@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  irssi:
+    image: irssi-qbt
+    container_name: irssi-qbt
+    stdin_open: true
+    tty: true
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Berlin
+      - TERM
+      - QBT_USER=admin
+      - QBT_PASS=adminadmin
+      - QBT_URL=http://localhost:8080
+    volumes:
+      - ./config/.autodl:/home/user/.autodl
+      - ./config/.irssi:/home/user/.irssi
+    restart: unless-stopped
+    # entrypoint: /bin/bash

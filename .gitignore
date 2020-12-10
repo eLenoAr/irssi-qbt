@@ -1,0 +1,5 @@
+config/.autodl/**
+!config/.autodl/autodl.cfg.example
+
+config/.irssi/**
+!config/.irssi/config.example

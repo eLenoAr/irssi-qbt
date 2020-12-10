@@ -1,0 +1,14 @@
+[options]
+output-level = 3
+debug = false
+update-check = disabled
+download-duplicates = true
+download-retry-time-seconds = 5
+
+[tracker tl]
+rsskey = my-secret-rss-key
+
+[filter GET ALL]
+upload-type = exec
+upload-command = /usr/bin/qbt
+upload-args = torrent add url $(torrentUrl)
