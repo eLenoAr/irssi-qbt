@@ -2,7 +2,7 @@
 * running a qBittorrent client (you may use the one from linuxserver.io)
 
 # Instructions
-1. edit zdocker-compose.ymlz to match your system (pathes and env vars)
+1. edit `docker-compose.yml` to match your system (pathes and env vars)
 1. run `docker-compose up` to initialise the container
 1. `docker attach <container-id>` to gain access to the irssi
 1. make settings in irssi (add server, channels, nickserv, etc pp) - type `/save` to save the config
