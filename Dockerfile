@@ -15,7 +15,8 @@ RUN set -eux; \
     libjson-perl \
     libcrypt-ssleay-perl \
     libxml-libxml-perl; \
-    wget -qO- 'https://dl.cloudsmith.io/public/qbittorrent-cli/qbittorrent-cli/gpg.F8756541ADDA2B7D.key' | apt-key add -; \
+    wget -qO- https://dl.cloudsmith.io/public/qbittorrent-cli/qbittorrent-cli/gpg.F8756541ADDA2B7D.key | gpg --dearmor > qbittorrent-cli.asc.gpg; \
+    mv qbittorrent-cli.asc.gpg /etc/apt/trusted.gpg.d/; \
     wget -q https://repos.fedarovich.com/debian/buster/qbittorrent-cli.list; \
     mv qbittorrent-cli.list /etc/apt/sources.list.d/; \
     apt-get update; \
