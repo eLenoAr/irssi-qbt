@@ -18,8 +18,7 @@ env:
   # REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   # IMAGE_NAME: ${{ github.repository }}
-  IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/${{ github.repository }}
-
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   build:
@@ -38,6 +37,8 @@ jobs:
           echo "My username for docker hub"
           echo ${{ secrets.DOCKER_USERNAME }}
           echo ${{ env.IMAGE_NAME }}
+          echo ${{ github.repository }}
+          echo ${{ vars.MY_VAR }}
 
       - name: Checkout repository
         uses: actions/checkout@v3
