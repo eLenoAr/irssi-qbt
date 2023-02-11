@@ -33,6 +33,12 @@ jobs:
       id-token: write
 
     steps:
+      - name: echo... echo... echo...
+        run: |
+          echo "My username for docker hub"
+          echo ${{ secrets.DOCKER_USERNAME }}
+          echo ${{ env.IMAGE_NAME }}
+
       - name: Checkout repository
         uses: actions/checkout@v3
 
@@ -67,7 +73,8 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.IMAGE_NAME }}
+          # images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
