@@ -1,6 +1,6 @@
-FROM irssi:latest
+FROM irssi:bullseye
 
-MAINTAINER https://github.com/eLenoAr
+LABEL maintainer="https://github.com/eLenoAr"
 
 USER root
 RUN set -eux; \
@@ -17,7 +17,7 @@ RUN set -eux; \
     libxml-libxml-perl; \
     wget -qO- https://dl.cloudsmith.io/public/qbittorrent-cli/qbittorrent-cli/gpg.F8756541ADDA2B7D.key | gpg --dearmor > qbittorrent-cli.asc.gpg; \
     mv qbittorrent-cli.asc.gpg /etc/apt/trusted.gpg.d/; \
-    wget -q https://repos.fedarovich.com/debian/buster/qbittorrent-cli.list; \
+    wget -q https://repos.fedarovich.com/debian/bullseye/qbittorrent-cli.list; \
     mv qbittorrent-cli.list /etc/apt/sources.list.d/; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
